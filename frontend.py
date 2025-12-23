@@ -10,7 +10,7 @@ cgpa=st.number_input("Enter your CGPA:", min_value=0.0, max_value=10.0, step=0.0
 backlogs=st.number_input("Number of Backlogs:", min_value=0, step=1)
 
 if st.button("Check Eligibility"):
-    api_url = "https://your-fastapi-url.onrender.com/predict"
+    api_url = "https://Mansi051/student-placement-api/predict"
     payload = {"cgpa": cgpa, "backlogs": backlogs}
     
     try:
