@@ -22,7 +22,7 @@ if st.button("Check Eligibility"):
     if cgpa < 7:
         st.error("Not Eligible for Placement")
     
-    elif backlogs > 1:
+    elif backlogs >= 1:
         st.error("Not Eligible for Placement")
 
     else:
