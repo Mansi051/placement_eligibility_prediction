@@ -1,4 +1,5 @@
 import numpy as np
+import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
@@ -23,3 +24,8 @@ x_scaled=scaler.fit_transform(x_train)
 
 model=LogisticRegression()
 model.fit(x_scaled,y_train)
+
+joblib.dump(model, 'placement_model.pkl')
+joblib.dump(scaler, 'scaler.pkl')
+
+print("Model and Scaler saved successfully")
