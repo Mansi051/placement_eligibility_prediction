@@ -19,10 +19,19 @@ cgpa=st.number_input("Enter your CGPA:", min_value=0.0, max_value=10.0, step=0.0
 backlogs=st.number_input("Number of Backlogs:", min_value=0, step=1)
 
 if st.button("Check Eligibility"):
-    input_data = np.array([[cgpa, backlogs]])
-    prediction = model.predict(input_data)
+    if cgpa < 7:
+        st.error("❌ Not Eligible for Placement (CGPA must be ≥ 7)")
+    
+    elif backlogs > 1:
+        st.error("❌ Not Eligible for Placement (Backlogs > 1)")
 
-    if prediction[0] == 1:
-        st.success("✅ Eligible for Placement")
     else:
-        st.error("❌ Not Eligible for Placement")
+        
+        x= np.array([[cgpa, backlogs]])
+        x_scaled = scaler.transform(x)
+        prediction = model.predict(x_scaled)
+
+        if prediction[0] == 1:
+            st.success("✅ Eligible for Placement")
+        else:
+            st.error("❌ Not Eligible for Placement")
