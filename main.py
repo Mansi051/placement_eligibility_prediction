@@ -5,13 +5,16 @@ from model import model,scaler
 import joblib
 
 app=FastAPI()
-
 model=joblib.load('placement_model.pkl')
 scaler=joblib.load('scaler.pkl')
 
 class StudentInput(BaseModel):
     cgpa:float
     backlogs:int
+
+@app.get("/")
+def home():
+    return {"message": "Placement API is Running"}
 
 @app.post("/predict")
 def predict_eligibility(data:StudentInput):
