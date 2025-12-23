@@ -4,6 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
 x_train=np.array([
+    [5.0,0],
     [5.5, 4],
     [6.0, 3],
     [6.5, 2],
@@ -17,7 +18,7 @@ x_train=np.array([
 ])
 
 
-y_train=np.array([0,0,0,0,1,1,1,1,1,1])
+y_train=np.array([0,0,0,0,0,1,1,1,1,1,1])
 
 scaler=StandardScaler()
 x_scaled=scaler.fit_transform(x_train)
