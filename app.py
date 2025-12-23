@@ -1,6 +1,15 @@
 import streamlit as st
 import requests
+import joblib
 
+st.set_page_config(page_title="Placement Predictor", layout="centered")
+
+def load_assets():
+    model = joblib.load('placement_model.pkl')
+    scaler = joblib.load('scaler.pkl')
+    return model, scaler
+
+model, scaler = load_assets()
 st.title("Student Placement Prediction")
 
 st.write("Enter your details to check if you are eligible for placement.")
